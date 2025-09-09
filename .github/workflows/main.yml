@@ -1,0 +1,65 @@
+ MD V5
+
+Home
+Features
+Download
+Setup Guide
+Workflow Code
+Contact
+ASITHA MD V5
+The Ultimate Session Manager
+
+Join Now 
+Features
+QR Code Generator
+Create and manage QR codes seamlessly for your sessions and devices.
+
+Go to QR Code Generator
+Easy Pairing
+Connect devices effortlessly with secure and instant pairing codes.
+
+Go to Pairing
+Open Source
+Fully open source and community-driven for transparency and innovation.
+
+Go to GitHub Repository
+Download Ready
+Get the latest versions quickly via trusted cloud download links.
+
+Go to Download
+DEPLOY CODE
+Github Workflow Deploy Code.
+
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start application
+      run: npm start
